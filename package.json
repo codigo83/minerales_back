@@ -1,0 +1,19 @@
+{
+  "name": "minerales-api",
+  "version": "1.0.0",
+  "description": "api para la app de minerales",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/codigo83/minerales_back.git"
+  },
+  "author": "deb8three",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codigo83/minerales_back/issues"
+  },
+  "homepage": "https://github.com/codigo83/minerales_back#readme"
+}
