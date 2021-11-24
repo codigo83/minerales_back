@@ -7,4 +7,4 @@ COPY seed.sh /tmp/seed.sh
 RUN chmod +x /tmp/seed.sh
 
 # Descomentar para resetear las colecciones
-CMD ["sh", "-c", "/tmp/seed.sh"]
+# CMD ["sh", "-c", "/tmp/seed.sh"]
