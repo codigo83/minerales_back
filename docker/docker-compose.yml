@@ -1,0 +1,33 @@
+version: "3"
+services:
+  mongo-seed-minerals-db:
+    image: "mongo:${MONGO_IMAGE_TAG}"
+    container_name: "mongo-seed-minerals-db"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
+    restart: "always"
+    networks:
+      net-minerales:
+        ipv4_address: 172.20.0.23
+
+  mongo-seed:
+    build: ./seed
+    env_file:
+      - .env
+    links:
+      - mongo-seed-minerals-db
+    depends_on:
+      - mongo-seed-minerals-db
+    networks:
+      - net-minerales
+
+networks:
+  net-minerales:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.20.0.0/24"
