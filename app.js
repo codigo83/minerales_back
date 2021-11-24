@@ -5,16 +5,24 @@ const mongoose = require('mongoose');
 
 const config = require('./config');
 
+const mineralsRouter = require('./api/src/minerals/minerals.routes');
+const infoRouter = require('./api/src/info/info.routes');
+
+
 
 mongoose.connect(config.conection_mongo, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connection.on('error', () => {
-    logger.error('Fallo la conexión a mongodb');
+   console.error('Fallo la conexión a mongodb');
     process.exit(1);
 });
-// mongoose.set('useFindAndModify', false);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+
+app.use('/api/minerals', mineralsRouter);
+app.use('/api/info', infoRouter);
+
 
 let server = app.listen(config.port, () => {
     console.log(`Escuchando en el puerto ${config.port}`);
