@@ -15,3 +15,14 @@ switch(environment) {
     default:
         environmentConfig = require('./dev');
 }
+
+console.log({
+    ...baseConfig,
+    ...environmentConfig
+});
+
+module.exports = {
+    environment,
+    ...baseConfig,
+    ...environmentConfig
+};
