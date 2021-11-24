@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const config = require('./config');
 
@@ -16,6 +17,7 @@ mongoose.connection.on('error', () => {
     process.exit(1);
 });
 
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
